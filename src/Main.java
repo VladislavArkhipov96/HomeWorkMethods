@@ -5,12 +5,13 @@ public class Main {
 
 
     public static void main(String[] args) {
-        isYearleap(2024);
-        deviceClient(0,2018);
-        delyvery(30, 0);
+        isYearLeap(2024);
+        deviceClient(1,2013);
+        int delyveryDistance = calculateDelyveryTime(60);
+        System.out.println(delyveryDistance);
     }
 
-    public static void isYearleap (int year) {
+    public static void isYearLeap (int year) {
         if (year < 1589) {
             System.out.println("Год не является високостным");
         } else {
@@ -36,21 +37,22 @@ public class Main {
         }
     }
 
-    public static void delyvery (int distance, int days) {
+    public static int calculateDelyveryTime (int distance) {
+        int deliveryTime;
         if (distance <= 20) {
-            days = 1;
+            deliveryTime = 1;
 
         } else if (distance > 20 && distance <= 60) {
-            days = 2;
+            deliveryTime = 2;
 
         } else if (distance > 60 && distance <= 100) {
-            days = 3;
+            deliveryTime = 3;
 
         } else {
-            days = -1;
+            deliveryTime = -1;
         }
+        return deliveryTime;
 
-        System.out.println("Потребуется дней:" + days);
     }
 
 }
